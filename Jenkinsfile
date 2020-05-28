@@ -8,17 +8,19 @@ pipeline {
     stage('checkout') {
       steps {
         checkout scm
-        sh 'docker pull hashicorp/terraform:light'
+//        sh 'docker pull hashicorp/terraform:light'
       }
     }
     stage('init') {
       steps {
-        sh 'docker run hashicorp/terraform:light init'
+//        sh 'docker run hashicorp/terraform:light init'
+          sh 'terraform init'
       }
     }
     stage('plan') {
       steps {
-        sh 'docker run hashicorp/terraform:light plan'
+//        sh 'docker run hashicorp/terraform:light plan'
+          sh 'terraform plan'
       }
     }
     stage('approval') {
@@ -31,7 +33,8 @@ pipeline {
     }
     stage('apply') {
       steps {
-        sh 'docker run hashicorp/terraform:light apply -auto-approve'
+  //      sh 'docker run hashicorp/terraform:light apply -auto-approve'
+          sh 'terraform apply --auto-aproove'
         cleanWs()
       }
     }
