@@ -34,7 +34,7 @@ pipeline {
     stage('apply') {
       steps {
   //      sh 'docker run hashicorp/terraform:light apply -auto-approve'
-          sh 'terraform apply --auto-aproove'
+          sh 'terraform apply -auto-aproove'
         cleanWs()
       }
     }
