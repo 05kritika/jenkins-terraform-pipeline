@@ -31,17 +31,14 @@ pipeline {
         input 'approve the plan to proceed and apply'
       }
     }
-    stage('apply') {
+    stage('apply or destroy') {
       steps {
   //      sh 'docker run hashicorp/terraform:light apply -auto-approve'
-          sh 'terraform apply -auto-approve'
+  //        sh 'terraform apply -auto-approve'
+          sh 'terraform destroy -auto-approve'
         cleanWs()
       }
     }
-    stage('destroy') {
-      steps {
-        sh 'terraform destroy -auto-approve'
-      }
-    }
+  
   }
 }
