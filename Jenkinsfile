@@ -34,8 +34,8 @@ pipeline {
     stage('apply or destroy') {
       steps {
   //      sh 'docker run hashicorp/terraform:light apply -auto-approve'
-          sh 'terraform apply -auto-approve'
-   //       sh 'terraform destroy -auto-approve'
+   //       sh 'terraform apply -auto-approve'
+          sh 'terraform destroy -auto-approve'
         cleanWs()
       }
     }
